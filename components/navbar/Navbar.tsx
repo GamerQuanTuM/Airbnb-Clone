@@ -4,8 +4,14 @@ import Container from '../Container'
 import Logo from './Logo'
 import Search from './Search'
 import UserMenu from './UserMenu'
+import Categories from "./Categories"
+import { SafeUser } from '@/typings';
 
-export default function Navbar() {
+type Props = {
+    currentUser?: SafeUser | null | undefined
+}
+
+export default function Navbar({ currentUser }: Props) {
     return (
         <div className='fixed w-full bg-white z-10 shadow-sm'>
             <div className="py-4 border-b-[1px]">
@@ -13,10 +19,11 @@ export default function Navbar() {
                     <div className='flex flex-grow  items-center justify-between gap-3 md:gap-0'>
                         <Logo />
                         <Search />
-                        <UserMenu />
+                        <UserMenu currentUser={currentUser} />
                     </div>
                 </Container>
             </div>
+            <Categories/>
         </div>
     )
 }
