@@ -53,6 +53,11 @@ function LoginModal() {
         })
     }
 
+    const toggle = useCallback(() => {
+        loginModal.onClose();
+        registerModal.onOpen()
+    }, [loginModal, registerModal])
+
     const bodyContent: React.ReactElement = (
         <div className="flex flex-col gap-2">
             <Heading title="Welcome to Airbnb" subtitle="" />
@@ -88,8 +93,8 @@ function LoginModal() {
             />
             <div className="text-neutral-500 text-center justify-center mt-4 font-light">
                 <div className="flex flex-row items-center gap-2 justify-center">
-                    <div className="">Already have an account?</div>
-                    <div onClick={loginModal.onClose} className="text-bold text-neutral-800 hover:underline hover:cursor-pointer">Log in</div>
+                    <div className="">First time using Airbnb?</div>
+                    <div onClick={toggle} className="text-bold text-neutral-800 hover:underline hover:cursor-pointer">Create an Account</div>
                 </div>
             </div>
         </div>

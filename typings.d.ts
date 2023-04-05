@@ -24,13 +24,7 @@ interface Button {
     icon?: IconType;
 }
 
-interface RegisterModalStore {
-    isOpen: boolean,
-    onOpen: () => void,
-    onClose: () => void
-}
-
-interface LoginModalStore {
+interface ModalStore {
     isOpen: boolean,
     onOpen: () => void,
     onClose: () => void
@@ -61,3 +55,11 @@ export type SafeUser = Omit<
     updatedAt: string;
     emailVerified: string | null;
 };
+
+interface CountrySelectValue {
+    flag: string;
+    label: string;
+    latlng: numbeer[];
+    region: string;
+    value: string;
+}
