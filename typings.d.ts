@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { Listing, User } from "@prisma/client";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { IconType } from "react-icons";
 
@@ -55,6 +55,13 @@ export type SafeUser = Omit<
     updatedAt: string;
     emailVerified: string | null;
 };
+
+export type SafeListings = Omit<
+    Listing,
+    "createdAt"
+> & {
+    createdAt: string;
+}
 
 interface CountrySelectValue {
     flag: string;
